@@ -160,9 +160,15 @@ namespace LiveSplit.Minecraft
             catch
             {
                 timer.Reset();
-                MessageBox.Show("Couldn't find the Minecraft world save.\n\n" +
-                    "Check that your saves folder location is correct on the settings page and that there is at least one save on the folder.",
-                    ComponentName, MessageBoxButtons.OK, MessageBoxIcon.Error);
+                var errorMessage = "Couldn't find the Minecraft world save.\n\n Check that your saves folder location is correct on the settings page and that there is at least one save on the folder.";
+                if (Properties.Settings.Default.AutosplitterEnabled)
+                {
+                    Properties.Settings.Default.AutosplitterEnabled = false;
+                    Properties.Settings.Default.Save();
+
+                    errorMessage += " The autosplitter has been disabled.";
+                }
+                MessageBox.Show(errorMessage, ComponentName, MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return "";
             }
         }

@@ -1,4 +1,12 @@
 ﻿<updates>
+	<update version="1.0.4">
+		<files>
+			<file path="Components/LiveSplit.Minecraft.dll" status="changed"/>
+		</files>
+		<changelog>
+			<change>Fixed issue when changing the saves folder to an empty folder while the autosplitter was enabled (thanks XDragon).</change>
+		</changelog>
+	</update>
 	<update version="1.0.3">
 		<files>
 			<file path="Components/LiveSplit.Minecraft.dll" status="changed"/>
